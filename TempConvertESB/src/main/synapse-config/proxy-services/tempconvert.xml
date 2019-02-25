@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="tempconvert" startOnLoad="true" transports="http https" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <endpoint name="endpoint_urn_uuid_bab11b4e-8696-4c19-9248-1e0c8aed1e36">
+            <address uri="http://www.w3schools.com/xml/tempconvert.asmx"/>
+        </endpoint>
+        <inSequence>
+            <log level="custom">
+                <property name="MESSAGE" value="CALLING TEMP CONVERT SERVICE"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

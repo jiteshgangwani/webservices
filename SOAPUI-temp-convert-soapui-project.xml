@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2fe12c7f-b795-4443-b07d-8c89e3647b17" activeEnvironment="Default" name="SOAPUI-temp-convert" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9bbdaec6-2ee1-420a-a94b-3ef4e4e08010" wsaVersion="NONE" name="tempconvertSoap11Binding" type="wsdl" bindingName="{http://ws.apache.org/axis2}tempconvertSoap11Binding" soapVersion="1_1" anonymous="optional" definition="http://users-imac.broadband:8280/services/tempconvert?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap11Endpoint</con:endpoint><con:endpoint>https://Users-iMac.broadband:8243/services/tempconvert.tempconvertHttpsSoap11Endpoint</con:endpoint></con:endpoints><con:operation id="f16bfeb2-faba-4422-9b96-da7f0c3e5062" isOneWay="false" action="urn:mediate" name="mediate" bindingOperationName="mediate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e06850ea-7e49-46fd-93b5-d8fe14f898a7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <CelsiusToFahrenheit xmlns="https://www.w3schools.com/xml/">
+      <Celsius>100</Celsius>
+    </CelsiusToFahrenheit>
+  </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:mediate"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="52d45f41-9ea7-49cb-a60d-e6d945bc81e5" wsaVersion="NONE" name="tempconvertSoap12Binding" type="wsdl" bindingName="{http://ws.apache.org/axis2}tempconvertSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://users-imac.broadband:8280/services/tempconvert?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://users-imac.broadband:8280/services/tempconvert?wsdl"><con:part><con:url>http://users-imac.broadband:8280/services/tempconvert?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ws.apache.org/axis2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.apache.org/axis2" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types/>
+  <wsdl:message name="in"/>
+  <wsdl:message name="out"/>
+  <wsdl:portType name="tempconvertPortType">
+    <wsdl:operation name="mediate">
+      <wsdl:input message="tns:in" wsaw:Action="urn:mediate"/>
+      <wsdl:output message="tns:out" wsaw:Action="urn:mediateResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tempconvertSoap11Binding" type="tns:tempconvertPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="mediate">
+      <soap:operation soapAction="urn:mediate" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tempconvertSoap12Binding" type="tns:tempconvertPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="mediate">
+      <soap12:operation soapAction="urn:mediate" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="tempconvertHttpBinding" type="tns:tempconvertPortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="mediate">
+      <http:operation location="mediate"/>
+      <wsdl:input>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="text/xml" part="parameters"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tempconvert">
+    <wsdl:port name="tempconvertHttpSoap11Endpoint" binding="tns:tempconvertSoap11Binding">
+      <soap:address location="http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="tempconvertHttpsSoap11Endpoint" binding="tns:tempconvertSoap11Binding">
+      <soap:address location="https://Users-iMac.broadband:8243/services/tempconvert.tempconvertHttpsSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="tempconvertHttpSoap12Endpoint" binding="tns:tempconvertSoap12Binding">
+      <soap12:address location="http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="tempconvertHttpsSoap12Endpoint" binding="tns:tempconvertSoap12Binding">
+      <soap12:address location="https://Users-iMac.broadband:8243/services/tempconvert.tempconvertHttpsSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="tempconvertHttpEndpoint" binding="tns:tempconvertHttpBinding">
+      <http:address location="http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpEndpoint"/>
+    </wsdl:port>
+    <wsdl:port name="tempconvertHttpsEndpoint" binding="tns:tempconvertHttpBinding">
+      <http:address location="https://Users-iMac.broadband:8243/services/tempconvert.tempconvertHttpsEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap12Endpoint</con:endpoint><con:endpoint>https://Users-iMac.broadband:8243/services/tempconvert.tempconvertHttpsSoap12Endpoint</con:endpoint></con:endpoints><con:operation id="9b97dd62-b5e2-45a3-8cfc-f73e182bbd5e" isOneWay="false" action="urn:mediate" name="mediate" bindingOperationName="mediate" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4ad8f3fe-1466-40e6-949b-6e9f2ab2166b" name="CelsiusToFahrenheit"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <CelsiusToFahrenheit xmlns="https://www.w3schools.com/xml/">
+      <Celsius>10</Celsius>
+    </CelsiusToFahrenheit>
+  </soap12:Body>
+</soap12:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:mediate"/><con:wsrmConfig version="1.2"/></con:call><con:call id="9f004d08-80cb-4f63-88c3-4b939099f9e2" name="FahrenheitToCelsius"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://Users-iMac.broadband:8280/services/tempconvert.tempconvertHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <FahrenheitToCelsius xmlns="https://www.w3schools.com/xml/">
+      <Fahrenheit>10</Fahrenheit>
+    </FahrenheitToCelsius>
+  </soap12:Body>
+</soap12:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:mediate"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
